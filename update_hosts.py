@@ -1,5 +1,5 @@
 #!/usr/bin/evn python2
-
+# Get hosts for google
 import urllib2
 import re
 url = 'http://www.360kb.com/kb/2_150.html'
