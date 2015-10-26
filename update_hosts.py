@@ -7,7 +7,7 @@ response = urllib2.urlopen(url)
 body = response.read()
 tmp = body.split("#google hosts")[1]
 tmp = tmp.replace("<br />", "")
-print tmp
+#print tmp
 header = """# localhost name resolution is handled within DNS itself.
 127.0.0.1       localhost
 ::1             localhost
@@ -23,7 +23,7 @@ ff02::2 ip6-allrouters
 hosts = header + "\n#" + tmp
 
 #fl = open(r'C:\WINDOWS\system32\drivers\etc\hosts', 'w')
-fl = open(r'hosts', 'w')
+fl = open(r'/etc/hosts', 'w')
 fl.write(hosts)
 fl.close()
 
