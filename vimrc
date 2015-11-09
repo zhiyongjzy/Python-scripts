@@ -117,14 +117,14 @@ endfunc
 autocmd BufNewFile * normal G  "新建文件后光标移动到文件结尾
 
 
-
-
-""set rtp+=~/.vim/bundle/vundle/
-""call vundle#rc()
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
 " let Vundle manage Vundle
 " required! 
-""'Bundle 'gmarik/vundle'
+Bundle 'gmarik/vundle'
 
 " 可以通过以下四种方式指定插件的来源
 " a) 指定Github中vim-scripts仓库中的插件，直接指定插件名称即可，插件明中的空格使用“-”代替。
@@ -135,11 +135,11 @@ autocmd BufNewFile * normal G  "新建文件后光标移动到文件结尾
 ""Bundle 'Lokaltog/vim-easymotion'
 ""Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 ""Bundle 'tpope/vim-rails.git'
+Bundle 'scrooloose/nerdtree'
 
 " c) 指定非Github的Git仓库的插件，需要使用git地址
 ""Bundle 'git://git.wincent.com/command-t.git'
 
 " d) 指定本地Git仓库中的插件
 ""Bundle 'file:///Users/gmarik/path/to/plugin'
-
-""filetype plugin indent on     " required!
+filetype plugin indent on     " required!
