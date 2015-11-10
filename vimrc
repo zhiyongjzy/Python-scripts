@@ -59,21 +59,21 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strf
 
 
 "自动补全
-:inoremap ( ()<ESC>i
-:inoremap ) <c-r>=ClosePair(')')<CR>
+":inoremap ( ()<ESC>i
+":inoremap ) <c-r>=ClosePair(')')<CR>
 ":inoremap { {<CR>}<ESC>O
 ":inoremap } <c-r>=ClosePair('}')<CR>
-:inoremap [ []<ESC>i
-:inoremap ] <c-r>=ClosePair(']')<CR>
-:inoremap " ""<ESC>i
-:inoremap ' ''<ESC>i
-function! ClosePair(char)
-	if getline('.')[col('.') - 1] == a:char
-		return "\<Right>"
-	else
-		return a:char
-	endif
-endfunction
+":inoremap [ []<ESC>i
+":inoremap ] <c-r>=ClosePair(']')<CR>
+":inoremap " ""<ESC>i
+":inoremap ' ''<ESC>i
+"function! ClosePair(char)
+"	if getline('.')[col('.') - 1] == a:char
+"		return "\<Right>"
+"	else
+"		return a:char
+"	endif
+"endfunction
 
 "新建.c,.h,.sh,.java文件，自动插入文件头 
 autocmd BufNewFile *.cpp,*.c,*.h,*.sh,*.java exec ":call SetTitle()" 
@@ -117,6 +117,36 @@ endfunc
 autocmd BufNewFile * normal G  "新建文件后光标移动到文件结尾
 
 
+
+let mapleader = ','
+
+
+
+
+" Settings for tagslist
+
+let Tlist_Use_Right_Window = 1 "让taglist窗口出现在Vim的右边
+let Tlist_File_Fold_Auto_Close = 1 "当同时显示多个文件中的tag时，设置为1，可使taglist只显示当前文件tag，其它文件的tag都被折叠起来。
+let Tlist_Show_One_File = 1 "只显示一个文件中的tag，默认为显示多个
+let Tlist_Sort_Type ='name' "Tag的排序规则，以名字排序。默认是以在文件中出现的顺序排序
+let Tlist_GainFocus_On_ToggleOpen = 1 "Taglist窗口打开时，立刻切换为有焦点状态
+let Tlist_Exit_OnlyWindow = 1 "如果taglist窗口是最后一个窗口，则退出vim
+let Tlist_WinWidth = 32 "设置窗体宽度为32，可以根据自己喜好设置
+"let Tlist_Ctags_Cmd ='/usr/local/Cellar/ctags/5.8/bin/ctags' "这里比较重要了，设置ctags的位置，不是指向MacOS自带的那个，而是我们用homebrew安装的那个
+map <silent> <leader>t :TlistToggle<cr>
+
+
+" Setting for YouCompleteMe
+let g:ycm_seed_identifiers_with_syntax=1	
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+"Do not ask when starting vim
+let g:ycm_confirm_extra_conf = 0
+let g:syntastic_always_populate_loc_list = 1
+
+
+
+" My Bundle 
+
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -125,6 +155,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
+Bundle 'taglist.vim'
 
 " 可以通过以下四种方式指定插件的来源
 " a) 指定Github中vim-scripts仓库中的插件，直接指定插件名称即可，插件明中的空格使用“-”代替。
@@ -135,8 +166,14 @@ Bundle 'gmarik/vundle'
 ""Bundle 'Lokaltog/vim-easymotion'
 ""Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 ""Bundle 'tpope/vim-rails.git'
-Bundle 'scrooloose/nerdtree'
 
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Valloric/YouCompleteMe'  
+"写的比较详细http://wiki.yangleo.me/latest.html
+
+Bundle 'Valloric/ListToggle'
+Bundle 'scrooloose/syntastic'
 " c) 指定非Github的Git仓库的插件，需要使用git地址
 ""Bundle 'git://git.wincent.com/command-t.git'
 
