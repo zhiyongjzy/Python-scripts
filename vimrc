@@ -1,5 +1,13 @@
-set nu
 
+
+set nu
+if has('gui_running')
+    set background=light
+else
+    "set background=dark
+    set background=light
+endif
+colo molokai
 set nocompatible
 
 set mouse=a
@@ -123,6 +131,73 @@ let mapleader = ','
 
 
 
+
+
+
+" My Bundle 
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
+Bundle 'taglist.vim'
+Bundle 'Winmanager'
+" 可以通过以下四种方式指定插件的来源
+" a) 指定Github中vim-scripts仓库中的插件，直接指定插件名称即可，插件明中的空格使用“-”代替。
+""Bundle 'L9'
+
+"" b) 指定Github中其他用户仓库的插件，使用“用户名/插件名称”的方式指定
+""Bundle 'tpope/vim-fugitive'
+""Bundle 'Lokaltog/vim-easymotion'
+""Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+""Bundle 'tpope/vim-rails.git'
+
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Valloric/YouCompleteMe'  
+"Bundle 'bling/vim-airline'
+Bundle 'altercation/vim-colors-solarized'
+
+"写的比较详细http://wiki.yangleo.me/latest.html
+
+Bundle 'Valloric/ListToggle'
+Bundle 'scrooloose/syntastic'
+" c) 指定非Github的Git仓库的插件，需要使用git地址
+""Bundle 'git://git.wincent.com/command-t.git'
+
+" d) 指定本地Git仓库中的插件
+""Bundle 'file:///Users/gmarik/path/to/plugin'
+filetype plugin indent on     " required!
+
+
+
+
+
+
+
+
+
+
+" Settings for winManager tagslist NERDTree
+let g:NERDTree_title="[NERDTree]"  
+let g:winManagerWindowLayout="NERDTree|TagList"  
+      
+function! NERDTree_Start()  
+	exec 'NERDTree'  
+endfunction  
+      
+function! NERDTree_IsValid()  
+	return 1  
+endfunction  
+      
+nmap wm :WMToggle<CR>  
+
+
+
 " Settings for tagslist
 
 let Tlist_Use_Right_Window = 1 "让taglist窗口出现在Vim的右边
@@ -145,38 +220,7 @@ let g:syntastic_always_populate_loc_list = 1
 
 
 
-" My Bundle 
+" Setting for vim-airline
 
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+"let g:airline#extensions#tabline#enabled = 1
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
-Bundle 'taglist.vim'
-
-" 可以通过以下四种方式指定插件的来源
-" a) 指定Github中vim-scripts仓库中的插件，直接指定插件名称即可，插件明中的空格使用“-”代替。
-""Bundle 'L9'
-
-"" b) 指定Github中其他用户仓库的插件，使用“用户名/插件名称”的方式指定
-""Bundle 'tpope/vim-fugitive'
-""Bundle 'Lokaltog/vim-easymotion'
-""Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-""Bundle 'tpope/vim-rails.git'
-
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'Valloric/YouCompleteMe'  
-"写的比较详细http://wiki.yangleo.me/latest.html
-
-Bundle 'Valloric/ListToggle'
-Bundle 'scrooloose/syntastic'
-" c) 指定非Github的Git仓库的插件，需要使用git地址
-""Bundle 'git://git.wincent.com/command-t.git'
-
-" d) 指定本地Git仓库中的插件
-""Bundle 'file:///Users/gmarik/path/to/plugin'
-filetype plugin indent on     " required!
