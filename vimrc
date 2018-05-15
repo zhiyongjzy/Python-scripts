@@ -13,6 +13,11 @@
 
 "set nu              " 显示行号  
 
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
 set go=             " 不要图形按钮  
 
 "color asmanian2     " 设置背景主题  
@@ -41,9 +46,9 @@ set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strf
 
 set laststatus=1    " 启动显示状态行(1),总是显示状态行(2)  
 
-set foldenable      " 允许折叠  
+"set foldenable      " 允许折叠  
 
-set foldmethod=manual   " 手动折叠  
+"set foldmethod=manual   " 手动折叠  
 
 "set background=dark "背景使用黑色
 
@@ -437,7 +442,7 @@ set whichwrap+=<,>,h,l
 
 " 可以在buffer的任何地方使用鼠标（类似office中在工作区双击鼠标定位）
 
-set mouse=a
+set mouse-=a
 
 set selection=exclusive
 
